@@ -6,8 +6,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 15 }
   
   # メールアドレスの形式を制限「---@---.---」
-  VALID_EAMIL_REGEX = /\A[\w+\-._]+@[\w+\-._]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EAMIL_REGEX }
+  VALID_EMAIL_REGEX = /\A[\w+\-._]+@[\w+\-._]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   
   # パスワードの長さを8〜32文字に制限、英数字混合
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/     # ?= → 肯定先読み？
