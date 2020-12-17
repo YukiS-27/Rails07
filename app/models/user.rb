@@ -17,6 +17,9 @@ class User < ApplicationRecord
   # パスワードの実装
   has_secure_password
   
+  # 1つのuserは複数のtopicを持つ
+  has_many :topics
+  
 end
 
 
