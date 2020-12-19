@@ -14,7 +14,12 @@
             <%= f.text_area :description, class: 'form-control' %>
           </div>
           
-          <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <% if logged_in? %>
+            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <% else %>
+            <!-- ログインしていない場合は投稿ボタンを非表示にし、ログイン画面へ遷移 -->
+            <%= link_to 'ログインしてください', login_path, class: 'text-red' %>
+          <% end %>
         <% end %>
       </div>
     </div>

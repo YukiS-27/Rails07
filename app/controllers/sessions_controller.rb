@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     # 変更前のコード => user = User.find_by(email: params[:session][:email])
     
-    if user && user.authenticate(session_params)
+    if user && user.authenticate(session_params[:password])
     # 変更前のコード => if user && user.authenticate(params[:session][:password])
       log_in user
       redirect_to root_path, success: 'ログインに成功しました'
