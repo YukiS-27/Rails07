@@ -20,7 +20,8 @@ class User < ApplicationRecord
   # 1つのuserは複数のtopicを持つ
   has_many :topics
   # 1つのuserは複数のfavoriteを持つ
-  has_many :favorites_topics, through: :favorites, source: 'topic'
+  has_many :favorites
+  has_many :favorite_topics, through: :favorites, source: 'topic'
   
 end
 

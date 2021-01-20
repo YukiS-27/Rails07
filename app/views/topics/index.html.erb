@@ -8,10 +8,27 @@
               <%= topic.user.name %>
             </h2>
             <%= image_tag topic.image.url %>
+            <!-- 元のコード -->
+            <!--
             <% if !topic.favorite_users.include?(current_user) %>
               <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
                 <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
               <% end %>
+            <% end %>
+            -->
+            
+            <!-- いいね！（ハート）マークを表示 -->
+            <% if topic.favorite_users.include?(current_user) %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                <%= image_tag 'icons/heart.png', class: 'topic-index-icon-red' %>
+              <% end %>
+              <!-- その投稿にいいね！したユーザーの数を数える -->
+              <%= topic.favorite_users.count %>
+            <% else %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+              <% end %>
+              <%= topic.favorite_users.count %>
             <% end %>
             <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
             <p class="topic-text">
