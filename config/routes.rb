@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   
   resources :users
   resources :topics
+  resources :comments
   
+  # get '/comments', to: 'comments#new'
+  # post '/comments', to: 'comments#create'
+  
+  # いいね！
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
   delete '/favorites', to: 'favorites#destroy'

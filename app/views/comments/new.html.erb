@@ -1,0 +1,20 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">コメント</h1>
+        
+        <!-- コメント入力フォーム -->
+        <%= form_for @comment, url: comments_path do |f| %>
+          <div class="form-group">
+            <%= f.label :comment %>
+            <%= f.text_area :comment, class: 'form-control' %>
+            <%= f.hidden_field :topic_id, :value => params[:topic_id] %>
+          </div>
+            <%= f.submit 'コメントする', class: 'btn btn-black btn-block' %>
+            
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

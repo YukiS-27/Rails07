@@ -150,5 +150,12 @@ h1, h2 {
       filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
     }
     
+    .comment-index {
+      padding-right: 20px;
+      padding-left: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    
   }
 }

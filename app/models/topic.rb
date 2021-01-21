@@ -9,5 +9,8 @@ class Topic < ApplicationRecord
   has_many :favorites
   has_many :favorite_users, through: :favorites, source: 'user'
   
+  # topicは複数のcommentを持つ
+  has_many :comments
+  
   mount_uploader :image, ImageUploader
 end
