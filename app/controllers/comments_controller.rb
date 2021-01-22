@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # end
   
   def new
-    @topic = Topic.find_by(params[:topic_id])
+    @topic = Topic.find(params[:topic_id])
     @comment = Comment.new
   end
   
