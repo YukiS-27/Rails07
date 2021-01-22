@@ -11,6 +11,7 @@ class Topic < ApplicationRecord
   
   # topicは複数のcommentを持つ
   has_many :comments
+  has_many :comment_users, through: :comments, source: 'user'
   
   mount_uploader :image, ImageUploader
 end

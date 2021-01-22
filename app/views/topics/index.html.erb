@@ -41,7 +41,16 @@
             
             <!-- コメントを表示 -->
             <h4 class="comment-index">コメント</h4>
-            <%=  %>
+            <% @comments.each do |comment| %>
+              <% if topic.id == comment.topic_id %>
+                <!-- コメントしたユーザー名を取得 -->
+                <% user = User.find_by(id: comment.user_id) %>
+                <span class="topic-text"><%= user.name %>：</span>
+                <p class="topic-text">
+                  <%= comment.comment %>
+                </p>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
